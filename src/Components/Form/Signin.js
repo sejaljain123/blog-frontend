@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './Signin.scss';
+import './Form.scss';
 
-const Register = () => {
+const Signin = () => {
   const [formData, setFormData] = useState({});
 
   const updateInput = (e) => {
@@ -30,14 +30,14 @@ const Register = () => {
             onChange={updateInput}
             value={formData.email || ''}
           />
-          <textarea
+          <input
             className="input"
             type="text"
             name="password"
             placeholder="Password"
             onChange={updateInput}
             value={formData.password || ''}
-          ></textarea>
+          />
           <div class="wrap">
             <button className="button" onClicktype="submit">
               Submit
@@ -49,4 +49,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Signin;

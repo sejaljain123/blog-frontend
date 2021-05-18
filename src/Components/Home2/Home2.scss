@@ -1,0 +1,32 @@
+.Home2 {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+
+  .text {
+    background-color: var(--color--bg1);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .welcome {
+      color: var(--light-text-color);
+      font-weight: 500;
+      letter-spacing: 2px;
+      font-size: 60px;
+    }
+  }
+  .main {
+    background-color: var(--color--bg2);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: var(--dark-text-color);
+  }
+}

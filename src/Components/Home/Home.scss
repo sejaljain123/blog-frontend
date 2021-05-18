@@ -4,7 +4,7 @@
   width: 100%;
 
   .form {
-    background-color: white;
+    background-color: var(--color--bg2);
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -14,14 +14,14 @@
   }
 
   .main {
-    background-color: #ff005b;
+    background-color: var(--color--bg1);
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    color: #ffffff;
+    color: var(--light-text-color);
 
     .hello {
       font-weight: 500;
@@ -38,7 +38,7 @@
       border-radius: 20px;
       border: 1px solid #ffffff;
       background-color: transparent;
-      color: #ffffff;
+      color: var(--light-text-color);
       font-size: 12px;
       font-weight: bold;
       padding: 12px 45px;

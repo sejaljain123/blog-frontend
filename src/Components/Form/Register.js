@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Register.scss';
+import './Form.scss';
 
 const Register = () => {
   const [formData, setFormData] = useState({});
@@ -23,7 +23,6 @@ const Register = () => {
     <div className="Form">
       <div className="container">
         <form onSubmit={handleSubmit}>
-          <label>Name</label>
           <input
             className="input"
             type="text"
@@ -32,7 +31,7 @@ const Register = () => {
             onChange={updateInput}
             value={formData.name || ''}
           />
-          <label>Email</label>
+
           <input
             className="input"
             type="email"
@@ -41,14 +40,15 @@ const Register = () => {
             onChange={updateInput}
             value={formData.email || ''}
           />
-          <label>Password</label>
-          <textarea
+
+          <input
             className="input"
             type="text"
             name="password"
+            placeholder="Password"
             onChange={updateInput}
             value={formData.password || ''}
-          ></textarea>
+          />
           <div class="wrap">
             <button className="button" onClicktype="submit">
               Submit

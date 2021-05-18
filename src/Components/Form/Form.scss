@@ -5,15 +5,15 @@
   .input {
     border: none;
     width: 100%;
-    background-color: whitesmoke;
+    background-color: var(--placeholder-color);
     margin-top: 20px;
     padding: 20px;
   }
   button {
     border-radius: 20px;
-    border: 1px solid #ff4b2b;
-    background-color: #ff4b2b;
-    color: #ffffff;
+    border: 1px solid var(--button-color);
+    background-color: var(--button-color);
+    color: var(--button-text-color);
     font-size: 12px;
     font-weight: bold;
     padding: 12px 45px;

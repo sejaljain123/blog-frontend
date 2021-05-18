@@ -1,7 +1,10 @@
 import React from 'react';
 import './Home.scss';
-import Signin from '../Signin/Signin';
-const Home = () => {
+import Signin from '../Form/Signin';
+const Home = ({ OnRouteChange }) => {
+  const onhandleSignup = () => {
+    OnRouteChange('register');
+  };
   return (
     <div className="Home">
       <div className="form">
@@ -12,7 +15,7 @@ const Home = () => {
         <h1 className="hello">HELLO!</h1>
         <p className="message">Love Writing Blogs?</p>
         <p className="text">Register Here!</p>
-        <button className="signup" type="submit">
+        <button onClick={onhandleSignup} className="signup" type="submit">
           SIGN UP
         </button>
       </div>
