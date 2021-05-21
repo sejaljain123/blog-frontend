@@ -1,22 +1,26 @@
 import './App.scss';
-import Home from '../Components/Home/Home';
-import Home2 from '../Components/Home2/Home2';
+import Signin from '../Components/Signin/Signin';
+import Register from '../Components/Register/Register';
 import { useState } from 'react';
+import Dashboard from '../Components/Dashboard/Dashboard';
 
 const App = () => {
   const [route, setRoute] = useState('signin');
-
-  const OnRouteChange = () => {
-    setRoute('register');
+  const OnRouteChange = (route) => {
+    if (route === 'signout') {
+      setRoute('signin');
+    } else if (route === 'home') {
+      setRoute('home');
+    } else {
+      setRoute(route);
+    }
   };
 
   return (
     <div className="App">
-      {route === 'signin' ? (
-        <Home OnRouteChange={OnRouteChange} />
-      ) : (
-        <Home2 OnRouteChange={OnRouteChange} />
-      )}
+      {route === 'home' && <Dashboard OnRouteChange={OnRouteChange} />}
+      {route === 'signin' && <Signin OnRouteChange={OnRouteChange} />}
+      {route === 'register' && <Register OnRouteChange={OnRouteChange} />}
     </div>
   );
 };

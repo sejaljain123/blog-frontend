@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 14px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.03em;
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+
+    .signout {
+      box-sizing: border-box;
+      padding: 10px 20px;
+      background-color: var(--button-color);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--button-text-color);
+        transition: ease-in-out 1s;
+      }
+    }
+    .create {
+      margin: 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+  }
+}
