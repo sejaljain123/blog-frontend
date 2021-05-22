@@ -25,7 +25,7 @@ const Signin = ({ OnRouteChange }) => {
     })
       .then((response) => response.json())
       .then((user) => {
-        if (user) {
+        if (user.success) {
           setState(user);
           Cookies.set('token', user.token, { expires: 1 });
           OnRouteChange('home');

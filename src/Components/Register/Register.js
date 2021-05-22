@@ -17,7 +17,7 @@ const Register = ({ OnRouteChange }) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch('http"//localhost:5000/signin', {
+    fetch('http"//localhost:5000/register', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -28,7 +28,7 @@ const Register = ({ OnRouteChange }) => {
     })
       .then((response) => response.json())
       .then((user) => setState(user));
-    OnRouteChange('home');
+    OnRouteChange('signin');
   };
   return (
     <div className="Home2">

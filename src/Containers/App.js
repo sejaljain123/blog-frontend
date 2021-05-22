@@ -9,8 +9,6 @@ const App = () => {
   const OnRouteChange = (route) => {
     if (route === 'signout') {
       setRoute('signin');
-    } else if (route === 'home') {
-      setRoute('home');
     } else {
       setRoute(route);
     }

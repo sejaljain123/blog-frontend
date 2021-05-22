@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import './Dashboard.scss';
+import BlogCard from '../BlogCard/BlogCard';
+import BlogList from '../BlogList/BlogList';
+
 const Dashboard = ({ OnRouteChange }) => {
+  const [post, setPost] = useState([]);
+
+  useEffect(() => handleDisplay(), []);
+
   const handleDisplay = () => {
     fetch('http://localhost:5000/blog/display', {
       method: 'get',
@@ -12,23 +19,22 @@ const Dashboard = ({ OnRouteChange }) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        setPost(data.posts);
       });
+  };
+  const signout = () => {
+    Cookies.remove('token');
+    OnRouteChange('signin');
   };
   return (
     <div className="header">
-      <button onClick={handleDisplay}>Display Blogs</button>
       <nav className="navbar">
         <p className="create">Create Blog</p>
-        <p
-          className="signout"
-          onClick={() => {
-            OnRouteChange('signout');
-          }}
-        >
+        <p className="signout" onClick={signout}>
           Sign Out
         </p>
       </nav>
+      <BlogList post={post} />
     </div>
   );
 };
