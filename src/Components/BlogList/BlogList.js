@@ -2,12 +2,21 @@ import React from 'react';
 import BlogCard from '../BlogCard/BlogCard';
 import './BlogList.scss';
 
-const BlogList = ({ post }) => {
+const BlogList = ({ post, handleDisplay }) => {
+  console.log(post);
   return (
     <>
-      {post.map((blog, i) => (
-        <BlogCard key={i} id={post[i].id} title={post[i].title} />
-      ))}
+      <div className="container">
+        {post.map((blog, i) => (
+          <BlogCard
+            handleDisplay={handleDisplay}
+            key={i}
+            id={post[i]._id}
+            title={post[i].title}
+            created_by={post[i].created_by}
+          />
+        ))}
+      </div>
     </>
   );
 };

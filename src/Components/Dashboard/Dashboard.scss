@@ -1,32 +1,22 @@
 .header {
-  display: flex;
-  justify-content: flex-end;
-  font-size: 14px;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.03em;
-
   .navbar {
     display: flex;
     align-items: center;
     text-align: center;
     padding: 10px;
+    font-size: 14px;
+    justify-content: flex-end;
 
-    .signout {
-      box-sizing: border-box;
-      padding: 10px 20px;
-      background-color: var(--button-color);
+    .navicon {
+      height: 50px;
+      width: 50px;
+      padding: 10px;
+      margin: 10px;
       cursor: pointer;
 
       &:hover {
-        color: var(--button-text-color);
-        transition: ease-in-out 1s;
+        transition: step-end;
       }
-    }
-    .create {
-      margin: 20px;
-      font-size: 1.2em;
-      cursor: pointer;
     }
   }
 }

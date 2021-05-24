@@ -26,15 +26,26 @@ const Dashboard = ({ OnRouteChange }) => {
     Cookies.remove('token');
     OnRouteChange('signin');
   };
+
   return (
     <div className="header">
       <nav className="navbar">
-        <p className="create">Create Blog</p>
-        <p className="signout" onClick={signout}>
-          Sign Out
-        </p>
+        <img
+          className="navicon"
+          onClick={() => OnRouteChange('create')}
+          src="https://img.icons8.com/pastel-glyph/100/ff005b/create-new--v2.png"
+          title="Write Blog"
+        />
+        <img
+          className="navicon"
+          onClick={signout}
+          src="https://img.icons8.com/ios-filled/50/ff005b/exit.png"
+          title="Sign Out"
+        />
       </nav>
-      <BlogList post={post} />
+      <div className="list">
+        <BlogList handleDisplay={handleDisplay} post={post} />
+      </div>
     </div>
   );
 };
