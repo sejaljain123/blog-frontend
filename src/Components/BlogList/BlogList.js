@@ -14,7 +14,6 @@ const BlogList = ({ post, handleDisplay }) => {
             id={post[i]._id}
             title={post[i].title}
             date={post[i].created_at}
-            author={post[i].created_by.name}
           />
         ))}
       </div>

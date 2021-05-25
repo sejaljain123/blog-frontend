@@ -61,3 +61,15 @@ export const createApi = async (blogtitle, blogcontent, blogdescription) => {
   });
   return data;
 };
+
+export const detailApi = async () => {
+  const data = await fetch('http://localhost:5000/blog/display/:id', {
+    method: 'get',
+    headers: {
+      Authorization: `Bearer ${Cookies.get('token')}`,
+      'Content-Type': 'application/json',
+    },
+  });
+
+  return data;
+};

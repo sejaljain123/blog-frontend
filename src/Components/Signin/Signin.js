@@ -22,6 +22,8 @@ const Signin = ({ OnRouteChange }) => {
     if ((signin.success = true)) {
       setState(signin.user);
       OnRouteChange('home');
+    } else {
+      alert('Invalid Email or Password');
     }
     console.log(signin);
   };

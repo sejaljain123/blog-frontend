@@ -5,7 +5,7 @@
     text-align: center;
     padding: 10px;
     font-size: 14px;
-    justify-content: flex-end;
+    justify-content: space-between;
 
     .navicon {
       height: 50px;
@@ -18,5 +18,10 @@
         transition: step-end;
       }
     }
+  }
+  .profile {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
   }
 }
