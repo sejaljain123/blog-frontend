@@ -13,7 +13,8 @@ const BlogList = ({ post, handleDisplay }) => {
             key={i}
             id={post[i]._id}
             title={post[i].title}
-            created_by={post[i].created_by}
+            date={post[i].created_at}
+            author={post[i].created_by.name}
           />
         ))}
       </div>

@@ -1,25 +1,19 @@
+import { displayApi, deleteApi } from '../../api';
 import Cookies from 'js-cookie';
-import React from 'react';
+import { useState, useEffect } from 'react';
 import './BlogCard.scss';
 const BlogCard = (props) => {
-  const handleDelete = () => {
-    fetch(`http://localhost:5000/blog/delete/${props.id}`, {
-      method: 'delete',
-      headers: {
-        Authorization: `Bearer ${Cookies.get('token')}`,
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then(() => props.handleDisplay());
+  const handleDelete = async () => {
+    const data = await deleteApi(props);
+    props.handleDisplay();
   };
   return (
     <>
       <div className="card">
         <div className="title">
           <h2>{props.title}</h2>
-          <p>{props.id}</p>
-          <p>{props.created_by}</p>
+          <p>Date:{props.date}</p>
+          <p>Author: {props.author}</p>
           <button onClick={handleDelete}>Delete</button>
         </div>
       </div>

@@ -1,11 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import './CreateBlog.scss';
-
+import Cookies from 'js-cookie';
+import { createApi } from '../../api';
 const CreateBlog = ({ OnRouteChange }) => {
-  const [title, setTitle] = useState(null);
-  const [description, setDescription] = useState(null);
-  const [content, setContent] = useState(null);
+  const [blogtitle, setTitle] = useState(null);
+  const [blogdescription, setDescription] = useState(null);
+  const [blogcontent, setContent] = useState(null);
+  const [blog, setBlog] = useState([]);
   const updateTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -15,9 +17,12 @@ const CreateBlog = ({ OnRouteChange }) => {
   const updateContent = (e) => {
     setContent(e.target.value);
   };
-  const handleCreate = (e) => {
+  const handleCreate = async (e) => {
     e.preventDefault();
-    OnRouteChange('home');
+    const data = await createApi(blogtitle, blogdescription, blogcontent);
+    const posts = await data.json();
+    console.log(posts);
+    setBlog(posts.blog);
   };
 
   return (
@@ -57,8 +62,8 @@ const CreateBlog = ({ OnRouteChange }) => {
                 style={{ height: '200px' }}
               ></textarea>
             </div>
-            <div class="wrap">
-              <button className="button" onClicktype="submit">
+            <div className="wrap">
+              <button className="button" type="submit">
                 Create
               </button>
             </div>

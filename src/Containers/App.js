@@ -19,7 +19,7 @@ const App = () => {
     <div className="App">
       {route === 'home' && <Dashboard OnRouteChange={OnRouteChange} />}
       {route === 'signin' && <Signin OnRouteChange={OnRouteChange} />}
-      {/* {route === 'register' && <Register OnRouteChange={OnRouteChange} />} */}
+      {route === 'register' && <Register OnRouteChange={OnRouteChange} />}
       {route === 'create' && <CreateBlog OnRouteChange={OnRouteChange} />}
     </div>
   );

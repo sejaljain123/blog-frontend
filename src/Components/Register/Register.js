@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import './Register.scss';
+import { registerApi } from '../../api';
 const Register = ({ OnRouteChange }) => {
-  const [name, setName] = useState(null);
+  const [regName, setName] = useState(null);
   const [regEmail, setRegEmail] = useState(null);
   const [regPassword, setRegPassword] = useState(null);
   const [state, setState] = useState([]);
@@ -15,20 +16,12 @@ const Register = ({ OnRouteChange }) => {
   const updatePassword = (e) => {
     setRegPassword(e.target.value);
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    fetch('http"//localhost:5000/register', {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: name,
-        email: regEmail,
-        password: regPassword,
-      }),
-    })
-      .then((response) => response.json())
-      .then((user) => setState(user));
-    OnRouteChange('signin');
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    const data = await registerApi(regName, regEmail, regPassword);
+    const register = await data.json();
+    setState(register.user);
+    console.log(register);
   };
   return (
     <div className="Home2">
@@ -40,7 +33,7 @@ const Register = ({ OnRouteChange }) => {
           <h1>CREATE ACCOUNT</h1>
           <div className="Form">
             <div className="container">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleRegister}>
                 <input
                   className="input"
                   type="text"
@@ -64,8 +57,8 @@ const Register = ({ OnRouteChange }) => {
                   placeholder="Password"
                   onChange={updatePassword}
                 />
-                <div class="wrap">
-                  <button className="button" onClicktype="submit">
+                <div className="wrap">
+                  <button className="button" type="submit">
                     Submit
                   </button>
                 </div>

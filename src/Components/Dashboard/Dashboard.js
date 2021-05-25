@@ -1,27 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import './Dashboard.scss';
-import BlogCard from '../BlogCard/BlogCard';
 import BlogList from '../BlogList/BlogList';
+import { displayApi } from '../../api';
 
 const Dashboard = ({ OnRouteChange }) => {
   const [post, setPost] = useState([]);
-
-  useEffect(() => handleDisplay(), []);
-
-  const handleDisplay = () => {
-    fetch('http://localhost:5000/blog/display', {
-      method: 'get',
-      headers: {
-        Authorization: `Bearer ${Cookies.get('token')}`,
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setPost(data.posts);
-      });
+  useEffect(() => {
+    handleDisplay();
+  }, []);
+  const handleDisplay = async () => {
+    const data = await displayApi();
+    const blog = await data.json();
+    setPost(blog.posts);
+    console.log(blog);
   };
+
   const signout = () => {
     Cookies.remove('token');
     OnRouteChange('signin');

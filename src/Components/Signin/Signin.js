@@ -2,6 +2,7 @@ import React from 'react';
 import './Signin.scss';
 import { useState } from 'react';
 import Cookies from 'js-cookie';
+import { signinApi } from '../../api';
 
 const Signin = ({ OnRouteChange }) => {
   const [signinEmail, setsigninEmail] = useState(null);
@@ -13,25 +14,16 @@ const Signin = ({ OnRouteChange }) => {
   const updatePassword = (e) => {
     setsigninPassword(e.target.value);
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    fetch('http://localhost:5000/signin', {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email: signinEmail,
-        password: signinPassword,
-      }),
-    })
-      .then((response) => response.json())
-      .then((user) => {
-        if (user.success) {
-          setState(user);
-          Cookies.set('token', user.token, { expires: 1 });
-          OnRouteChange('home');
-        }
-        console.log(user);
-      });
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    const data = await signinApi(signinEmail, signinPassword);
+    const signin = await data.json();
+
+    if ((signin.success = true)) {
+      setState(signin.user);
+      OnRouteChange('home');
+    }
+    console.log(signin);
   };
   return (
     <div className="Home">
@@ -54,8 +46,8 @@ const Signin = ({ OnRouteChange }) => {
                 placeholder="Password"
                 onChange={updatePassword}
               />
-              <div class="wrap">
-                <button onClick={handleSubmit} className="button" onClicktype="submit">
+              <div className="wrap">
+                <button onClick={handleSignIn} className="button" type="submit">
                   Submit
                 </button>
               </div>
