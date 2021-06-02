@@ -19,6 +19,7 @@ const BlogCard = (props) => {
             src="https://img.icons8.com/wired/64/ffffff/trash.png"
             height="50px"
             width="50px"
+            className="delete"
           />
         </div>
       </div>

@@ -9,10 +9,4 @@
   color: var(--light-text-color);
   padding: 60px;
   cursor: pointer;
-
-  &:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    color: var(--color--bg1);
-    background-color: var(--color--bg2);
-  }
 }

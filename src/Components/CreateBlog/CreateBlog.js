@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import './CreateBlog.scss';
 import Cookies from 'js-cookie';
-import ReactMarkdown from 'react-markdown';
-
 import { createApi } from '../../api';
+import MDEditor from '@uiw/react-md-editor';
+
 const CreateBlog = ({ OnRouteChange }) => {
   const [blogtitle, setTitle] = useState(null);
   const [blogdescription, setDescription] = useState(null);
@@ -38,31 +38,34 @@ const CreateBlog = ({ OnRouteChange }) => {
         />
       </nav>
       <div className="big">
-        <h1 className="heading">Write Your Blog Here!</h1>
         <div className="blog">
           <form onSubmit={handleCreate}>
             <div className="box">
-              <label>Title</label>
-              <input className="placeholder" name="name" onChange={updateTitle} />
+              <input
+                placeholder="Enter Title..."
+                className="placeholder"
+                name="name"
+                onChange={updateTitle}
+              />
             </div>
             <div className="box">
-              <label>Description</label>
-
               <textarea
+                placeholder="Enter Description...."
                 className="placeholder"
                 onChange={updateDescription}
                 style={{ height: '90px' }}
               />
             </div>
             <div className="box">
-              <label>Content</label>
-
-              <textarea
-                className="placeholder"
-                type="text"
-                onChange={updateContent}
-                style={{ height: '200px' }}
-              ></textarea>
+              <MDEditor
+                textareaProps={{
+                  placeholder: 'Write Your Blog Here',
+                }}
+                height={500}
+                width={500}
+                value={blogcontent}
+                onChange={setContent}
+              />
             </div>
             <div className="wrap">
               <button className="button" type="submit">

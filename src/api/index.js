@@ -15,7 +15,10 @@ export const displayApi = async () => {
 export const signinApi = async (signinEmail, signinPassword) => {
   const data = await fetch('http://localhost:5000/signin', {
     method: 'post',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      Authorization: `Bearer ${Cookies.get('token')}`,
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify({
       email: signinEmail,
       password: signinPassword,

@@ -8,6 +8,8 @@ const Signin = ({ OnRouteChange }) => {
   const [signinEmail, setsigninEmail] = useState(null);
   const [signinPassword, setsigninPassword] = useState(null);
   const [state, setState] = useState([]);
+
+  const handleValidation = () => {};
   const updateEmail = (e) => {
     setsigninEmail(e.target.value);
   };
@@ -16,10 +18,12 @@ const Signin = ({ OnRouteChange }) => {
   };
   const handleSignIn = async (e) => {
     e.preventDefault();
+    handleValidation();
     const data = await signinApi(signinEmail, signinPassword);
     const signin = await data.json();
 
     if ((signin.success = true)) {
+      Cookies.set('token', signin.token);
       setState(signin.user);
       OnRouteChange('home');
     } else {
