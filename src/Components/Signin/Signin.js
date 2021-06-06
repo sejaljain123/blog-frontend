@@ -1,36 +1,49 @@
 import React from 'react';
 import './Signin.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import { signinApi } from '../../api';
+import { Link, Redirect, useHistory } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const Signin = ({ OnRouteChange }) => {
+const Signin = () => {
+  useEffect(() => {
+    console.log('hello');
+  }, []);
   const [signinEmail, setsigninEmail] = useState(null);
   const [signinPassword, setsigninPassword] = useState(null);
   const [state, setState] = useState([]);
+  const history = useHistory();
 
-  const handleValidation = () => {};
   const updateEmail = (e) => {
     setsigninEmail(e.target.value);
   };
   const updatePassword = (e) => {
     setsigninPassword(e.target.value);
   };
-  const handleSignIn = async (e) => {
-    e.preventDefault();
-    handleValidation();
-    const data = await signinApi(signinEmail, signinPassword);
-    const signin = await data.json();
 
-    if ((signin.success = true)) {
-      Cookies.set('token', signin.token);
-      setState(signin.user);
-      OnRouteChange('home');
+  const handleSignIn = async (e) => {
+    if (!signinPassword || !signinEmail) {
+      toast.dark('Enter Email and Password', {
+        position: 'top-right',
+        autoClose: 100000,
+      });
     } else {
-      alert('Invalid Email or Password');
+      e.preventDefault();
+      const data = await signinApi(signinEmail, signinPassword);
+      const signin = await data.json();
+      if ((signin.success = true)) {
+        Cookies.set('token', signin.token);
+        setState(signin.user);
+        history.push('/dashboard');
+      } else {
+        history.push('/');
+      }
     }
-    console.log(signin);
   };
+
+  if (Cookies.get('token')) return <Redirect to="/dashboard"></Redirect>;
   return (
     <div className="Home">
       <div className="form">
@@ -45,6 +58,7 @@ const Signin = ({ OnRouteChange }) => {
                 placeholder="Email"
                 onChange={updateEmail}
               />
+
               <input
                 className="input"
                 type="text"
@@ -52,11 +66,11 @@ const Signin = ({ OnRouteChange }) => {
                 placeholder="Password"
                 onChange={updatePassword}
               />
-              <div className="wrap">
-                <button onClick={handleSignIn} className="button" type="submit">
-                  Submit
-                </button>
-              </div>
+
+              <button onClick={handleSignIn} className="button" type="submit">
+                Submit
+              </button>
+              <ToastContainer position="top-right" autoClose={100000} />
             </form>
           </div>
         </div>
@@ -65,9 +79,11 @@ const Signin = ({ OnRouteChange }) => {
         <h1 className="hello">HELLO!</h1>
         <p className="message">Love Writing Blogs?</p>
         <p className="text">Register Here!</p>
-        <button onClick={() => OnRouteChange('register')} className="signup" type="submit">
-          SIGN UP
-        </button>
+        <Link to="/register">
+          <button className="signup" type="submit">
+            SIGN UP
+          </button>
+        </Link>
       </div>
     </div>
   );

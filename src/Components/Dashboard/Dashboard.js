@@ -3,9 +3,12 @@ import Cookies from 'js-cookie';
 import './Dashboard.scss';
 import BlogList from '../BlogList/BlogList';
 import { displayApi } from '../../api';
+import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 
-const Dashboard = ({ OnRouteChange }) => {
+const Dashboard = () => {
   const [post, setPost] = useState([]);
+  const history = useHistory();
+  const { url } = useRouteMatch();
   useEffect(() => {
     handleDisplay();
   }, []);
@@ -18,7 +21,7 @@ const Dashboard = ({ OnRouteChange }) => {
 
   const signout = () => {
     Cookies.remove('token');
-    OnRouteChange('signin');
+    history.push('/');
   };
 
   return (
@@ -27,12 +30,13 @@ const Dashboard = ({ OnRouteChange }) => {
         <img src="https://img.icons8.com/ios-filled/100/ff005b/blogger.png" />
         <div className="right-nav">
           <img className="navicon" src="https://img.icons8.com/ios-filled/50/ff005b/user.png" />
-          <img
-            className="navicon"
-            onClick={() => OnRouteChange('create')}
-            src="https://img.icons8.com/pastel-glyph/100/ff005b/create-new--v2.png"
-            title="Write Blog"
-          />
+          <Link to={`${url}/create`}>
+            <img
+              className="navicon"
+              src="https://img.icons8.com/pastel-glyph/100/ff005b/create-new--v2.png"
+              title="Write Blog"
+            />
+          </Link>
           <img
             className="navicon"
             onClick={signout}
@@ -42,7 +46,7 @@ const Dashboard = ({ OnRouteChange }) => {
         </div>
       </nav>
       <div className="list">
-        <BlogList handleDisplay={handleDisplay} OnRouteChange={OnRouteChange} post={post} />
+        <BlogList handleDisplay={handleDisplay} post={post} />
       </div>
     </div>
   );

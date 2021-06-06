@@ -1,5 +1,4 @@
 import Cookies from 'js-cookie';
-import { useState } from 'react';
 
 export const displayApi = async () => {
   const data = await fetch('http://localhost:5000/blog/display', {
@@ -49,7 +48,7 @@ export const deleteApi = async (props) => {
   });
   return data;
 };
-export const createApi = async (blogtitle, blogcontent, blogdescription) => {
+export const createApi = async (blogtitle, blogdescription, blogcontent) => {
   const data = await fetch('http://localhost:5000/blog/create', {
     method: 'post',
     headers: {
@@ -65,14 +64,23 @@ export const createApi = async (blogtitle, blogcontent, blogdescription) => {
   return data;
 };
 
-export const detailApi = async () => {
-  const data = await fetch('http://localhost:5000/blog/display/:id', {
+export const detailApi = async (props) => {
+  const data = await fetch(`http://localhost:5000/blog/myblog/${props.id}`, {
     method: 'get',
     headers: {
       Authorization: `Bearer ${Cookies.get('token')}`,
       'Content-Type': 'application/json',
     },
   });
-
-  return data;
+  return await data.json();
+};
+export const verifyApi = async () => {
+  const data = await fetch(`http://localhost:5000/verify`, {
+    method: 'get',
+    headers: {
+      Authorization: `Bearer ${Cookies.get('token')}`,
+      'Content-Type': 'application/json',
+    },
+  });
+  return await data.json();
 };

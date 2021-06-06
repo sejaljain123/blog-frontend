@@ -2,11 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 import './Register.scss';
 import { registerApi } from '../../api';
-const Register = ({ OnRouteChange }) => {
+import { Link, useHistory } from 'react-router-dom';
+const Register = () => {
   const [regName, setName] = useState(null);
   const [regEmail, setRegEmail] = useState(null);
   const [regPassword, setRegPassword] = useState(null);
   const [state, setState] = useState([]);
+  const history = useHistory();
   const updateName = (e) => {
     setName(e.target.value);
   };
@@ -18,6 +20,7 @@ const Register = ({ OnRouteChange }) => {
   };
   const handleRegister = async (e) => {
     e.preventDefault();
+    history.push('/');
     const data = await registerApi(regName, regEmail, regPassword);
     const register = await data.json();
     setState(register.user);

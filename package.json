@@ -15,9 +15,13 @@
     "react-icons": "^4.2.0",
     "react-markdown": "^6.0.2",
     "react-markdown-editor": "^0.6.2",
+    "react-markdown-previewer": "^1.0.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-toast-notifications": "^2.4.4",
+    "react-toastify": "^7.0.4",
     "sass": "^1.32.13",
+    "styled-content-loader": "^1.2.2",
     "web-vitals": "^1.0.1",
     "yamde": "^1.6.1"
   },

@@ -1,29 +1,19 @@
 import './App.scss';
 import Signin from '../Components/Signin/Signin';
 import Register from '../Components/Register/Register';
-import { useState } from 'react';
-import Dashboard from '../Components/Dashboard/Dashboard';
-import CreateBlog from '../Components/CreateBlog/CreateBlog';
-import Footer from '../Components/Footer/Footer';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import DashboardPage from '../Components/DashboardPage/DashboardPage';
 const App = () => {
-  const [route, setRoute] = useState('signin');
-  const OnRouteChange = (route) => {
-    if (route === 'signout') {
-      setRoute('signin');
-    } else {
-      setRoute(route);
-    }
-    console.log(route);
-  };
-
   return (
-    <div className="App">
-      {route === 'home' && <Dashboard OnRouteChange={OnRouteChange} />}
-      {route === 'signin' && <Signin OnRouteChange={OnRouteChange} />}
-      {route === 'register' && <Register OnRouteChange={OnRouteChange} />}
-      {route === 'create' && <CreateBlog OnRouteChange={OnRouteChange} />}
-      {route === 'home' && <Footer />}
-    </div>
+    <>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Signin}></Route>
+          <Route exact path="/register" component={Register}></Route>
+          <Route path="/dashboard" component={DashboardPage}></Route>
+        </Switch>
+      </BrowserRouter>
+    </>
   );
 };
 
