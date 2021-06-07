@@ -1,16 +1,32 @@
 import React from 'react';
-import { useState } from 'react';
-import './CreateBlog.scss';
-
-import { createApi } from '../../api';
+import { detailApi, updateApi } from '../../api';
+import { useParams, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import MDEditor from '@uiw/react-md-editor';
-import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-const CreateBlog = () => {
+
+const BlogUpdate = () => {
+  const { id } = useParams();
   const [blogtitle, setTitle] = useState('');
   const [blogdescription, setDescription] = useState('');
   const [blogcontent, setContent] = useState('');
-  // const [blog, setBlog] = useState([]);
+  const [blog, setBlog] = useState([]);
+
+  useEffect(() => {
+    handleOldData();
+  }, []);
+  const handleOldData = async () => {
+    const data = await detailApi({ id });
+    setTitle(data.posts.title);
+    setDescription(data.posts.description);
+    setContent(data.posts.content);
+    console.log(data.posts);
+  };
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    const data = await updateApi({ id, blogtitle, blogdescription, blogcontent });
+    console.log(data);
+  };
+
   const updateTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -19,20 +35,6 @@ const CreateBlog = () => {
   };
   const updateContent = (e) => {
     setContent(e.target.value);
-  };
-  const handleCreate = async (e) => {
-    if (!blogtitle || !blogdescription || !blogcontent) {
-      toast.dark('Input Fields cannot be empty', {
-        position: 'top-right',
-        autoClose: 1000,
-      });
-    } else {
-      e.preventDefault();
-      const data = await createApi(blogtitle, blogdescription, blogcontent);
-      const posts = await data.json();
-      // setBlog(posts.blog);
-      toast.success('Blog Added');
-    }
   };
 
   return (
@@ -74,14 +76,13 @@ const CreateBlog = () => {
               height={500}
               width={500}
               value={blogcontent}
-              onChange={setContent}
+              onChange={updateContent}
             />
           </div>
           <div className="wrap">
-            <button onClick={handleCreate} className="button" type="submit">
-              Create
+            <button onClick={handleUpdate} className="button" type="submit">
+              Update
             </button>
-            <ToastContainer autoClose={1000} />
           </div>
         </div>
       </div>
@@ -89,4 +90,4 @@ const CreateBlog = () => {
   );
 };
 
-export default CreateBlog;
+export default BlogUpdate;

@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Dashboard from '../Dashboard/Dashboard';
 import CreateBlog from '../CreateBlog/CreateBlog';
 import BlogDetail from '../BlogDetail/BlogDetail';
+import BlogUpdate from '../BlogUpdate/BlogUpdate';
 
 const DashboardPage = () => {
   const [isloggedIn, setLoggedIn] = useState(false);
@@ -33,6 +34,7 @@ const DashboardPage = () => {
 
         <Route exact path="/dashboard/create" component={CreateBlog}></Route>
         <Route exact path="/dashboard/:id" component={BlogDetail}></Route>
+        <Route exact path="/dashboard/update/:id" component={BlogUpdate}></Route>
       </Switch>
     </BrowserRouter>
   );

@@ -46,7 +46,7 @@ export const deleteApi = async (props) => {
       'Content-Type': 'application/json',
     },
   });
-  return data;
+  return await data.json();
 };
 export const createApi = async (blogtitle, blogdescription, blogcontent) => {
   const data = await fetch('http://localhost:5000/blog/create', {
@@ -81,6 +81,21 @@ export const verifyApi = async () => {
       Authorization: `Bearer ${Cookies.get('token')}`,
       'Content-Type': 'application/json',
     },
+  });
+  return await data.json();
+};
+export const updateApi = async (props) => {
+  const data = await fetch(`http://localhost:5000/blog/update/${props.id}`, {
+    method: 'put',
+    headers: {
+      Authorization: `Bearer ${Cookies.get('token')}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      title: props.blogtitle,
+      description: props.blogdescription,
+      content: props.blogcontent,
+    }),
   });
   return await data.json();
 };

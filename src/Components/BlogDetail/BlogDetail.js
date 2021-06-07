@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { detailApi } from '../../api';
 import { MdPreviewer } from 'react-markdown-previewer';
+import './BlogDetail.scss';
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -17,21 +18,23 @@ const BlogDetail = () => {
 
   const handleDetail = async () => {
     const data = await detailApi({ id: id });
+    console.log(data.posts);
     setTitle(data.posts.title);
     setDescription(data.posts.description);
     setContent(data.posts.content);
     setDate(data.posts.created_at);
     setAuthor(data.posts.created_by.name);
-    console.log(data.posts);
   };
 
   return (
-    <div>
-      <h1>Title:{title}</h1>
+    <div className="detail">
+      <div className="stylebox1">
+        <h1 className="title">{title}</h1>
+        <span className="author">By {author}</span>
+      </div>
       <h2>Date: {date}</h2>
       <p>{description}</p>
       <MdPreviewer md={content}></MdPreviewer>
-      <h3>Author:{author}</h3>
     </div>
   );
 };

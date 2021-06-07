@@ -1,0 +1,23 @@
+.detail {
+  .stylebox1 {
+    display: block;
+
+    .title {
+      font-family: 'Patua One', cursive;
+      font-size: 6rem;
+      font-weight: 600;
+      color: var(--color--bg1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .author {
+      font-family: 'Great Vibes', cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+    }
+  }
+}
