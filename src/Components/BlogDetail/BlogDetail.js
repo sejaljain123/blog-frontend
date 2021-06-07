@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { detailApi } from '../../api';
 import { MdPreviewer } from 'react-markdown-previewer';
+
 import './BlogDetail.scss';
 
 const BlogDetail = () => {
@@ -32,9 +33,10 @@ const BlogDetail = () => {
         <h1 className="title">{title}</h1>
         <span className="author">By {author}</span>
       </div>
-      <h2>Date: {date}</h2>
-      <p>{description}</p>
-      <MdPreviewer md={content}></MdPreviewer>
+
+      <div className="content">
+        <MdPreviewer md={content}></MdPreviewer>
+      </div>
     </div>
   );
 };

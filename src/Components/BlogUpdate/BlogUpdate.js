@@ -76,7 +76,7 @@ const BlogUpdate = () => {
               height={500}
               width={500}
               value={blogcontent}
-              onChange={updateContent}
+              onChange={setContent}
             />
           </div>
           <div className="wrap">

@@ -21,19 +21,28 @@ const BlogCard = (props) => {
       <div className="card">
         <div className="cardtitle">
           <Link to={`/dashboard/${props.id}`}>
-            <h2>{props.title}</h2>
+            <h2 className="cardTitle">{props.title}</h2>
           </Link>
-          <p>Date:{props.date}</p>
-          <img
-            onClick={handleDelete}
-            src="https://img.icons8.com/wired/64/ffffff/trash.png"
-            height="50px"
-            width="50px"
-            className="delete"
-          />
-          <Link to={`/dashboard/update/${props.id}`}>
-            <button>update</button>
-          </Link>
+          <p className="carDate">Date:{props.date}</p>
+          <div className="editdelete">
+            <img
+              onClick={handleDelete}
+              src="https://img.icons8.com/wired/64/ffffff/trash.png"
+              height="50px"
+              width="50px"
+              className="delete"
+              title="Delete Blog"
+            />
+            <Link to={`/dashboard/update/${props.id}`}>
+              <img
+                className="edit"
+                src="https://img.icons8.com/ios/24/ffffff/edit-file.png"
+                height="50px"
+                width="50px"
+                title="Edit Blog"
+              />
+            </Link>
+          </div>
           <ToastContainer autoClose={1000} />
         </div>
       </div>
