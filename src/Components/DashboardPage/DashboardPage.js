@@ -31,9 +31,7 @@ const DashboardPage = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/dashboard" component={Dashboard}></Route>
-
         <Route exact path="/dashboard/create" component={CreateBlog}></Route>
-        <Route exact path="/dashboard/:id" component={BlogDetail}></Route>
         <Route exact path="/dashboard/update/:id" component={BlogUpdate}></Route>
       </Switch>
     </BrowserRouter>

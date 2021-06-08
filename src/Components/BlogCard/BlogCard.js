@@ -20,7 +20,7 @@ const BlogCard = (props) => {
     <>
       <div className="card">
         <div className="cardtitle">
-          <Link to={`/dashboard/${props.id}`}>
+          <Link to={`/${props.id}`}>
             <h2 className="cardTitle">{props.title}</h2>
           </Link>
           <p className="carDate">Date:{props.date}</p>

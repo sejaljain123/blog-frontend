@@ -20,7 +20,7 @@ const Register = () => {
   };
   const handleRegister = async (e) => {
     e.preventDefault();
-    history.push('/');
+    history.push('/signin');
     const data = await registerApi(regName, regEmail, regPassword);
     const register = await data.json();
     setState(register.user);

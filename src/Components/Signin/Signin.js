@@ -38,7 +38,7 @@ const Signin = () => {
         setState(signin.user);
         history.push('/dashboard');
       } else {
-        history.push('/');
+        history.push('/signin');
       }
     }
   };

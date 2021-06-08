@@ -1,0 +1,43 @@
+.blogcontainer {
+  margin-top: 50px;
+  width: 100%;
+
+  .blog {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: auto;
+    display: block;
+    padding: 20px;
+
+    .cardContent {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      font-family: 'Roboto', serif;
+      margin: 0, 50px;
+      .blogTitle {
+        font-size: 3rem;
+        color: var(--dashboard-headline-color);
+      }
+
+      .read {
+        background-color: var(--color--bg1);
+        padding: 15px;
+        margin: 10px;
+        border: none;
+        color: var(--button-text-color);
+        font-size: 25px;
+        cursor: pointer;
+        font-family: 'serif', Roboto;
+        font-weight: 500;
+
+        &:hover {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+    .blogDescription {
+      font-size: 20px;
+    }
+  }
+}

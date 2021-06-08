@@ -3,13 +3,17 @@ import Signin from '../Components/Signin/Signin';
 import Register from '../Components/Register/Register';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import DashboardPage from '../Components/DashboardPage/DashboardPage';
+import BlogDetail from '../Components/BlogDetail/BlogDetail';
+import Hero from '../Components/Hero/Hero';
 const App = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/" component={Signin}></Route>
+        <Route exact path="/" component={Hero} />
+        <Route exact path="/signin" component={Signin}></Route>
         <Route exact path="/register" component={Register}></Route>
         <Route path="/dashboard" component={DashboardPage}></Route>
+        <Route exact path="/:id" component={BlogDetail}></Route>
       </Switch>
     </div>
   );
