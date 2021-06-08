@@ -1,30 +1,4 @@
 .Hero {
-  .header {
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--color--bg1);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 20px;
-
-    .name {
-      font-family: 'Great Vibes', cursive;
-      color: var(--color--bg2);
-      font-size: 4rem;
-      font-weight: 600;
-    }
-    .auth {
-      display: flex;
-      .signin,
-      .register {
-        text-decoration: none;
-        margin: 20px;
-        border: 1px solid;
-        padding: 10px;
-        background-color: var(--color--bg2);
-        color: var(--color--bg1);
-      }
-    }
-  }
   .blogList {
     position: absolute;
     display: block;

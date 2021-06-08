@@ -1,5 +1,5 @@
-.header {
-  .navbar {
+.dashheader {
+  .dashnavbar {
     display: flex;
     align-items: center;
     text-align: center;
@@ -7,7 +7,7 @@
     font-size: 14px;
     justify-content: space-between;
 
-    .navicon {
+    .dashnavicon {
       height: 50px;
       width: 50px;
       padding: 10px;
@@ -19,7 +19,7 @@
       }
     }
   }
-  .profile {
+  .dashprofile {
     height: 50px;
     width: 50px;
     border-radius: 50%;

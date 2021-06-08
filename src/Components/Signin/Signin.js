@@ -5,6 +5,7 @@ import Cookies from 'js-cookie';
 import { signinApi } from '../../api';
 import { Link, Redirect, useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import Header from '../Header/Header';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Signin = () => {
@@ -45,45 +46,48 @@ const Signin = () => {
 
   if (Cookies.get('token')) return <Redirect to="/dashboard"></Redirect>;
   return (
-    <div className="Home">
-      <div className="form">
-        <h1>SIGN IN</h1>
-        <div className="Form">
-          <div className="container">
-            <form>
-              <input
-                className="input"
-                type="email"
-                name="email"
-                placeholder="Email"
-                onChange={updateEmail}
-              />
+    <div className="signincontainer">
+      <Header />
+      <div className="Home">
+        <div className="form">
+          <h1 className="signin">SIGN IN</h1>
+          <div className="Form">
+            <div className="container">
+              <form>
+                <input
+                  className="input"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  onChange={updateEmail}
+                />
 
-              <input
-                className="input"
-                type="text"
-                name="password"
-                placeholder="Password"
-                onChange={updatePassword}
-              />
+                <input
+                  className="input"
+                  type="text"
+                  name="password"
+                  placeholder="Password"
+                  onChange={updatePassword}
+                />
 
-              <button onClick={handleSignIn} className="button" type="submit">
-                Submit
-              </button>
-              <ToastContainer position="top-right" autoClose={100000} />
-            </form>
+                <button onClick={handleSignIn} className="button" type="submit">
+                  Submit
+                </button>
+                <ToastContainer position="top-right" autoClose={100000} />
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="main">
-        <h1 className="hello">HELLO!</h1>
-        <p className="message">Love Writing Blogs?</p>
-        <p className="text">Register Here!</p>
-        <Link to="/register">
-          <button className="signup" type="submit">
-            SIGN UP
-          </button>
-        </Link>
+        <div className="main">
+          <h1 className="hello">HELLO!</h1>
+          <p className="message">Love Writing Blogs?</p>
+          <p className="text">Register Here!</p>
+          <Link to="/register">
+            <button className="signup" type="submit">
+              SIGN UP
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

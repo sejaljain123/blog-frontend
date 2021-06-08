@@ -18,24 +18,24 @@ const BlogCard = (props) => {
 
   return (
     <>
-      <div className="card">
+      <div className="Card">
         <div className="cardtitle">
           <Link to={`/${props.id}`}>
             <h2 className="cardTitle">{props.title}</h2>
           </Link>
-          <p className="carDate">Date:{props.date}</p>
-          <div className="editdelete">
+          <p className="cardDate">Date:{props.date}</p>
+          <div className="cardeditdelete">
             <img
               onClick={handleDelete}
               src="https://img.icons8.com/wired/64/ffffff/trash.png"
               height="50px"
               width="50px"
-              className="delete"
+              className="carddelete"
               title="Delete Blog"
             />
             <Link to={`/dashboard/update/${props.id}`}>
               <img
-                className="edit"
+                className="cardedit"
                 src="https://img.icons8.com/ios/24/ffffff/edit-file.png"
                 height="50px"
                 width="50px"

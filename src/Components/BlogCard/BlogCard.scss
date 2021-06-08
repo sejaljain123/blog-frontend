@@ -1,4 +1,4 @@
-.card {
+.Card {
   display: flex;
   justify-content: center;
   height: 50%;
@@ -13,12 +13,12 @@
     font-family: 'Patua One', cursive;
     color: var(--dashboard-card-content-color);
   }
-  .editdelete {
+  .cardeditdelete {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .edit {
+  .cardedit {
     margin: 20px;
   }
 }

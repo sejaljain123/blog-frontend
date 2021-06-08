@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div>
       <div className="footer">
-        <span className="footer-text"> Made with 💕 by</span>
+        <span className="footer-text"> Made with 🤍 by</span>
         <a href="https://portfolio-sejal.vercel.app/" target="_blank">
           <img className="profile" src={logo} />
         </a>

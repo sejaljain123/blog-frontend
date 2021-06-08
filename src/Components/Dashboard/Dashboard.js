@@ -25,27 +25,27 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="header">
-      <nav className="navbar">
+    <div className="dashheader">
+      <nav className="dashnavbar">
         <img src="https://img.icons8.com/ios-filled/100/ff005b/blogger.png" />
-        <div className="right-nav">
-          <img className="navicon" src="https://img.icons8.com/ios-filled/50/ff005b/user.png" />
+        <div className="dashright-nav">
+          <img className="dashnavicon" src="https://img.icons8.com/ios-filled/50/ff005b/user.png" />
           <Link to={`${url}/create`}>
             <img
-              className="navicon"
+              className="dashnavicon"
               src="https://img.icons8.com/pastel-glyph/100/ff005b/create-new--v2.png"
               title="Write Blog"
             />
           </Link>
           <img
-            className="navicon"
+            className="dashnavicon"
             onClick={signout}
             src="https://img.icons8.com/ios-filled/50/ff005b/exit.png"
             title="Sign Out"
           />
         </div>
       </nav>
-      <div className="list">
+      <div className="dashlist">
         <BlogList handleDisplay={handleDisplay} post={post} />
       </div>
     </div>

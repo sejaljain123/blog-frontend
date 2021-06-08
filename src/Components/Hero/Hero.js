@@ -1,11 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Particles from 'react-particles-js';
-
+import Footer from '../Footer/Footer';
 import { Link } from 'react-router-dom';
 import { displayApi } from '../../api';
 import Blog from './Blog/Blog';
-import title from './Readit.png';
+import Header from '../Header/Header';
+
 import './Hero.scss';
 const Hero = () => {
   const [post, setPost] = useState([]);
@@ -20,19 +21,8 @@ const Hero = () => {
   };
   return (
     <>
+      <Header />
       <div className="Hero">
-        <nav className="header">
-          {/* <span className="name"> READIT</span> */}
-          <img src={title} />
-          <div className="auth">
-            <Link to="/signin">
-              <p className="signin"> SignIn</p>
-            </Link>
-            <Link to="/register">
-              <p className="register">Register</p>
-            </Link>
-          </div>
-        </nav>
         <div className="blogList">
           {post.map((blog, i) => (
             <Blog
@@ -44,6 +34,7 @@ const Hero = () => {
             />
           ))}
         </div>
+
         <Particles
           className="particles-js"
           params={{
@@ -82,6 +73,7 @@ const Hero = () => {
           }}
         />
       </div>
+      <Footer />
     </>
   );
 };

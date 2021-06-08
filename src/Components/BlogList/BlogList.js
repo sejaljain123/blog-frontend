@@ -7,7 +7,7 @@ const BlogList = ({ post, handleDisplay }) => {
   console.log(post);
   return (
     <>
-      <div className="container">
+      <div className="blogListcontainer">
         {post.map((blog, i) => (
           <BlogCard
             handleDisplay={handleDisplay}
