@@ -4,22 +4,20 @@ import './CreateBlog.scss';
 
 import { createApi } from '../../api';
 import MDEditor from '@uiw/react-md-editor';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 const CreateBlog = () => {
   const [blogtitle, setTitle] = useState('');
   const [blogdescription, setDescription] = useState('');
   const [blogcontent, setContent] = useState('');
-  // const [blog, setBlog] = useState([]);
+  const history = useHistory();
   const updateTitle = (e) => {
     setTitle(e.target.value);
   };
   const updateDescription = (e) => {
     setDescription(e.target.value);
   };
-  const updateContent = (e) => {
-    setContent(e.target.value);
-  };
+
   const handleCreate = async (e) => {
     if (!blogtitle || !blogdescription || !blogcontent) {
       toast.dark('Input Fields cannot be empty', {
@@ -28,10 +26,9 @@ const CreateBlog = () => {
       });
     } else {
       e.preventDefault();
-      const data = await createApi(blogtitle, blogdescription, blogcontent);
-      const posts = await data.json();
-      // setBlog(posts.blog);
+      await createApi(blogtitle, blogdescription, blogcontent);
       toast.success('Blog Added');
+      history.push('/dashboard');
     }
   };
 
@@ -43,6 +40,7 @@ const CreateBlog = () => {
             className="back"
             src="https://img.icons8.com/plasticine/100/000000/circled-left.png"
             title="Back"
+            alt="back"
           />
         </Link>
       </nav>

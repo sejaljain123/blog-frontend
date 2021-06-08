@@ -32,9 +32,9 @@
 
 .button {
   border-radius: 20px;
-  border: 1px solid var(--button-color);
-  background-color: var(--button-color);
-  color: var(--button-text-color);
+  border: none;
+  background-color: var(--color--bg1);
+  color: var(--color--bg2);
   font-size: 12px;
   font-weight: bold;
   padding: 12px 45px;
@@ -53,8 +53,8 @@
   }
   &:hover {
     background-color: var(--color--bg2);
-    border: solid 2px var(--button-color);
-    color: var(--button-color);
+    border: solid 2px var(--color--bg1);
+    color: var(--color--bg1);
     transition: ease-in-out 1s;
     cursor: pointer;
   }

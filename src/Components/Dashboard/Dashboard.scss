@@ -1,27 +1,4 @@
-.dashheader {
-  .dashnavbar {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    justify-content: space-between;
-
-    .dashnavicon {
-      height: 50px;
-      width: 50px;
-      padding: 10px;
-      margin: 10px;
-      cursor: pointer;
-
-      &:hover {
-        transition: step-end;
-      }
-    }
-  }
-  .dashprofile {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-  }
+.dashlist {
+  position: relative;
+  margin-top: 80px;
 }

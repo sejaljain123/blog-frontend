@@ -29,6 +29,7 @@
     "sass": "^1.32.13",
     "styled-content-loader": "^1.2.2",
     "web-vitals": "^1.0.1",
+    "wouter": "^2.7.4",
     "yamde": "^1.6.1"
   },
   "scripts": {

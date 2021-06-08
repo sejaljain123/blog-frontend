@@ -1,4 +1,4 @@
-import { deleteApi, updateApi } from '../../api';
+import { deleteApi } from '../../api';
 import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import './BlogCard.scss';
@@ -20,8 +20,8 @@ const BlogCard = (props) => {
     <>
       <div className="Card">
         <div className="cardtitle">
-          <Link to={`/${props.id}`}>
-            <h2 className="cardTitle">{props.title}</h2>
+          <Link className="cardTitle" to={`/${props.id}`}>
+            {props.title}
           </Link>
           <p className="cardDate">Date:{props.date}</p>
           <div className="cardeditdelete">
@@ -32,14 +32,16 @@ const BlogCard = (props) => {
               width="50px"
               className="carddelete"
               title="Delete Blog"
+              alt="trash"
             />
             <Link to={`/dashboard/update/${props.id}`}>
               <img
                 className="cardedit"
-                src="https://img.icons8.com/ios/24/ffffff/edit-file.png"
+                src="https://img.icons8.com/material-rounded/48/ffffff/edit--v1.png"
+                title="Edit Blog"
                 height="50px"
                 width="50px"
-                title="Edit Blog"
+                alt="edit"
               />
             </Link>
           </div>

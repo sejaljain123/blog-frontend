@@ -2,13 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import './Register.scss';
 import { registerApi } from '../../api';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
 const Register = () => {
   const [regName, setName] = useState(null);
   const [regEmail, setRegEmail] = useState(null);
   const [regPassword, setRegPassword] = useState(null);
-  const [state, setState] = useState([]);
   const history = useHistory();
   const updateName = (e) => {
     setName(e.target.value);
@@ -24,7 +23,7 @@ const Register = () => {
     history.push('/signin');
     const data = await registerApi(regName, regEmail, regPassword);
     const register = await data.json();
-    setState(register.user);
+
     console.log(register);
   };
   return (
@@ -58,7 +57,7 @@ const Register = () => {
 
                   <input
                     className="input"
-                    type="text"
+                    type="password"
                     name="password"
                     placeholder="Password"
                     onChange={updatePassword}

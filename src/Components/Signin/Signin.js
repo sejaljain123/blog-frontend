@@ -1,6 +1,6 @@
 import React from 'react';
 import './Signin.scss';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Cookies from 'js-cookie';
 import { signinApi } from '../../api';
 import { Link, Redirect, useHistory } from 'react-router-dom';
@@ -9,12 +9,8 @@ import Header from '../Header/Header';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Signin = () => {
-  useEffect(() => {
-    console.log('hello');
-  }, []);
   const [signinEmail, setsigninEmail] = useState(null);
   const [signinPassword, setsigninPassword] = useState(null);
-  const [state, setState] = useState([]);
   const history = useHistory();
 
   const updateEmail = (e) => {
@@ -36,10 +32,7 @@ const Signin = () => {
       const signin = await data.json();
       if ((signin.success = true)) {
         Cookies.set('token', signin.token);
-        setState(signin.user);
         history.push('/dashboard');
-      } else {
-        history.push('/signin');
       }
     }
   };
@@ -64,7 +57,7 @@ const Signin = () => {
 
                 <input
                   className="input"
-                  type="text"
+                  type="password"
                   name="password"
                   placeholder="Password"
                   onChange={updatePassword}

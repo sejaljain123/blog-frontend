@@ -1,24 +1,41 @@
 .Card {
   display: flex;
   justify-content: center;
-  height: 50%;
+  height: 70%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 30%;
   background-color: var(--dashboard-card-color);
   color: var(--dashboard-card-content-color);
-  padding: 60px;
+  margin: 20px;
+  padding: 20px;
 
   .cardTitle {
     text-decoration: none;
     font-family: 'Patua One', cursive;
     color: var(--dashboard-card-content-color);
+    font-size: 40px;
+
+    &:hover {
+      transition: ease-in-out 1s;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    }
   }
   .cardeditdelete {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+  .carddelete {
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    }
+  }
   .cardedit {
     margin: 20px;
+
+    &:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    }
   }
 }

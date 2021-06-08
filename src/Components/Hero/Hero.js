@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Particles from 'react-particles-js';
 import Footer from '../Footer/Footer';
-import { Link } from 'react-router-dom';
+
 import { displayApi } from '../../api';
 import Blog from './Blog/Blog';
 import Header from '../Header/Header';
@@ -23,18 +23,6 @@ const Hero = () => {
     <>
       <Header />
       <div className="Hero">
-        <div className="blogList">
-          {post.map((blog, i) => (
-            <Blog
-              key={i}
-              id={post[i]._id}
-              title={post[i].title}
-              description={post[i].description}
-              date={post[i].created_at}
-            />
-          ))}
-        </div>
-
         <Particles
           className="particles-js"
           params={{
@@ -72,6 +60,17 @@ const Hero = () => {
             },
           }}
         />
+        <div className="blogList">
+          {post.map((blog, i) => (
+            <Blog
+              key={i}
+              id={post[i]._id}
+              title={post[i].title}
+              description={post[i].description}
+              date={post[i].created_at}
+            />
+          ))}
+        </div>
       </div>
       <Footer />
     </>

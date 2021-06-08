@@ -61,7 +61,7 @@ export const createApi = async (blogtitle, blogdescription, blogcontent) => {
       content: blogcontent,
     }),
   });
-  return data;
+  return await data.json();
 };
 
 export const detailApi = async (props) => {
@@ -76,6 +76,16 @@ export const detailApi = async (props) => {
 };
 export const verifyApi = async () => {
   const data = await fetch(`http://localhost:5000/verify`, {
+    method: 'get',
+    headers: {
+      Authorization: `Bearer ${Cookies.get('token')}`,
+      'Content-Type': 'application/json',
+    },
+  });
+  return await data.json();
+};
+export const userBlogApi = async () => {
+  const data = await fetch(`http://localhost:5000/blog/myblogs`, {
     method: 'get',
     headers: {
       Authorization: `Bearer ${Cookies.get('token')}`,

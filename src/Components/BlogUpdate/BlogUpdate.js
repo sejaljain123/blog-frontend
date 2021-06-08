@@ -1,30 +1,35 @@
 import React from 'react';
 import { detailApi, updateApi } from '../../api';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import MDEditor from '@uiw/react-md-editor';
+import { toast, ToastContainer } from 'react-toastify';
 
 const BlogUpdate = () => {
   const { id } = useParams();
   const [blogtitle, setTitle] = useState('');
   const [blogdescription, setDescription] = useState('');
   const [blogcontent, setContent] = useState('');
-  const [blog, setBlog] = useState([]);
+  const history = useHistory();
 
-  useEffect(() => {
-    handleOldData();
-  }, []);
+  useEffect(
+    () => {
+      handleOldData();
+    },
+    // eslint-disable-next-line
+    []
+  );
   const handleOldData = async () => {
     const data = await detailApi({ id });
     setTitle(data.posts.title);
     setDescription(data.posts.description);
     setContent(data.posts.content);
-    console.log(data.posts);
   };
   const handleUpdate = async (e) => {
     e.preventDefault();
-    const data = await updateApi({ id, blogtitle, blogdescription, blogcontent });
-    console.log(data);
+    await updateApi({ id, blogtitle, blogdescription, blogcontent });
+    toast.success('Updated Successfully');
+    history.push('/dashboard');
   };
 
   const updateTitle = (e) => {
@@ -33,10 +38,6 @@ const BlogUpdate = () => {
   const updateDescription = (e) => {
     setDescription(e.target.value);
   };
-  const updateContent = (e) => {
-    setContent(e.target.value);
-  };
-
   return (
     <>
       <nav className="nav">
@@ -45,6 +46,7 @@ const BlogUpdate = () => {
             className="back"
             src="https://img.icons8.com/plasticine/100/000000/circled-left.png"
             title="Back"
+            alt="back"
           />
         </Link>
       </nav>
@@ -83,6 +85,7 @@ const BlogUpdate = () => {
             <button onClick={handleUpdate} className="button" type="submit">
               Update
             </button>
+            <ToastContainer />
           </div>
         </div>
       </div>

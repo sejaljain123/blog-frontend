@@ -1,0 +1,20 @@
+.Dasheader {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color--bg1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
+
+  .navbtns {
+    display: flex;
+    .dashnavicon {
+      text-decoration: none;
+      margin: 10px;
+      padding: 10px;
+
+      &:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+}

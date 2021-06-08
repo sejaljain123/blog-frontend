@@ -7,13 +7,16 @@ const Header = () => {
   return (
     <>
       <nav className="header">
-        <img src={title} />
+        <img src={title} alt="title" />
         <div className="auth">
-          <Link to="/signin">
-            <p className="signin"> SignIn</p>
+          <Link className="homebtn" to="/">
+            Home
           </Link>
-          <Link to="/register">
-            <p className="register">Register</p>
+          <Link to="/signin" className="homebtn">
+            SIGN IN
+          </Link>
+          <Link to="/register" className="homebtn">
+            Register
           </Link>
         </div>
       </nav>
