@@ -3,8 +3,9 @@ import { verifyApi } from '../../api';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Dashboard from '../Dashboard/Dashboard';
 import CreateBlog from '../CreateBlog/CreateBlog';
-
 import BlogUpdate from '../BlogUpdate/BlogUpdate';
+import ClipLoader from 'react-spinners/ClipLoader';
+import './DashboardPage.scss';
 
 const DashboardPage = () => {
   const [isloggedIn, setLoggedIn] = useState(false);
@@ -24,7 +25,12 @@ const DashboardPage = () => {
     setLoading(false);
   };
 
-  if (isLoading) return <h1>Loading</h1>;
+  if (isLoading)
+    return (
+      <div className="loader">
+        <ClipLoader isLoading={isLoading} color="#ff005b" size={100} />{' '}
+      </div>
+    );
   if (!isloggedIn) return <Redirect to="/"></Redirect>;
 
   return (

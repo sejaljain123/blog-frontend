@@ -2,23 +2,32 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Particles from 'react-particles-js';
 import Footer from '../Footer/Footer';
-
+import ClipLoader from 'react-spinners/ClipLoader';
 import { displayApi } from '../../api';
 import Blog from './Blog/Blog';
 import Header from '../Header/Header';
 
 import './Hero.scss';
+import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 const Hero = () => {
   const [post, setPost] = useState([]);
+  const [loading, setloading] = useState(true);
   useEffect(() => {
     handleDisplay();
   }, []);
   const handleDisplay = async () => {
+    setloading(true);
     const data = await displayApi();
     const blog = await data.json();
     setPost(blog.posts);
-    console.log(blog);
+    setloading(false);
   };
+  if (loading)
+    return (
+      <div className="loader">
+        <ClipLoader loading={loading} color="#ff005b" size={100} />{' '}
+      </div>
+    );
   return (
     <>
       <Header />
