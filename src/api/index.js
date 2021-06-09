@@ -49,7 +49,7 @@ export const deleteApi = async (props) => {
   return await data.json();
 };
 export const createApi = async (blogtitle, blogdescription, blogcontent) => {
-  const data = await fetch('https://read-it-blog.herokuapp.com//blog/create', {
+  const data = await fetch('https://read-it-blog.herokuapp.com/blog/create', {
     method: 'post',
     headers: {
       Authorization: `Bearer ${Cookies.get('token')}`,
