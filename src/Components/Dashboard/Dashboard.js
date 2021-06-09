@@ -4,7 +4,6 @@ import BlogList from '../BlogList/BlogList';
 import { userBlogApi } from '../../api';
 
 import DasHeader from './DasHeader/DasHeader';
-import { toast } from 'react-toastify';
 
 const Dashboard = () => {
   const [post, setPost] = useState([]);

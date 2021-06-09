@@ -8,7 +8,7 @@ import Blog from './Blog/Blog';
 import Header from '../Header/Header';
 
 import './Hero.scss';
-import { unstable_renderSubtreeIntoContainer } from 'react-dom';
+
 const Hero = () => {
   const [post, setPost] = useState([]);
   const [loading, setloading] = useState(true);
