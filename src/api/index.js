@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 
 export const displayApi = async () => {
-  const data = await fetch('http://localhost:5000/blog/display', {
+  const data = await fetch('https://read-it-blog.herokuapp.com/blog/display', {
     method: 'get',
     headers: {
       Authorization: `Bearer ${Cookies.get('token')}`,
@@ -12,7 +12,7 @@ export const displayApi = async () => {
   return data;
 };
 export const signinApi = async (signinEmail, signinPassword) => {
-  const data = await fetch('http://localhost:5000/signin', {
+  const data = await fetch('https://read-it-blog.herokuapp.com/signin', {
     method: 'post',
     headers: {
       Authorization: `Bearer ${Cookies.get('token')}`,
@@ -27,7 +27,7 @@ export const signinApi = async (signinEmail, signinPassword) => {
   return data;
 };
 export const registerApi = async (regName, regEmail, regPassword) => {
-  const data = await fetch('http://localhost:5000/register', {
+  const data = await fetch('https://read-it-blog.herokuapp.com/register', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -39,7 +39,7 @@ export const registerApi = async (regName, regEmail, regPassword) => {
   return data;
 };
 export const deleteApi = async (props) => {
-  const data = await fetch(`http://localhost:5000/blog/delete/${props.id}`, {
+  const data = await fetch(`https://read-it-blog.herokuapp.com/blog/delete/${props.id}`, {
     method: 'delete',
     headers: {
       Authorization: `Bearer ${Cookies.get('token')}`,
@@ -49,7 +49,7 @@ export const deleteApi = async (props) => {
   return await data.json();
 };
 export const createApi = async (blogtitle, blogdescription, blogcontent) => {
-  const data = await fetch('http://localhost:5000/blog/create', {
+  const data = await fetch('https://read-it-blog.herokuapp.com//blog/create', {
     method: 'post',
     headers: {
       Authorization: `Bearer ${Cookies.get('token')}`,
@@ -65,7 +65,7 @@ export const createApi = async (blogtitle, blogdescription, blogcontent) => {
 };
 
 export const detailApi = async (props) => {
-  const data = await fetch(`http://localhost:5000/blog/myblog/${props.id}`, {
+  const data = await fetch(`https://read-it-blog.herokuapp.com/blog/myblog/${props.id}`, {
     method: 'get',
     headers: {
       Authorization: `Bearer ${Cookies.get('token')}`,
@@ -75,7 +75,7 @@ export const detailApi = async (props) => {
   return await data.json();
 };
 export const verifyApi = async () => {
-  const data = await fetch(`http://localhost:5000/verify`, {
+  const data = await fetch(`https://read-it-blog.herokuapp.com/verify`, {
     method: 'get',
     headers: {
       Authorization: `Bearer ${Cookies.get('token')}`,
@@ -85,7 +85,7 @@ export const verifyApi = async () => {
   return await data.json();
 };
 export const userBlogApi = async () => {
-  const data = await fetch(`http://localhost:5000/blog/myblogs`, {
+  const data = await fetch(`https://read-it-blog.herokuapp.com/blog/myblogs`, {
     method: 'get',
     headers: {
       Authorization: `Bearer ${Cookies.get('token')}`,
@@ -95,7 +95,7 @@ export const userBlogApi = async () => {
   return await data.json();
 };
 export const updateApi = async (props) => {
-  const data = await fetch(`http://localhost:5000/blog/update/${props.id}`, {
+  const data = await fetch(`https://read-it-blog.herokuapp.com/blog/update/${props.id}`, {
     method: 'put',
     headers: {
       Authorization: `Bearer ${Cookies.get('token')}`,
