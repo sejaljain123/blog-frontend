@@ -38,48 +38,46 @@ const Register = () => {
   return (
     <>
       <Header />
-      <div className="Home2">
-        <div className="text">
+      <div className="Home">
+        <div className="main">
           <h2 className="welcome">Welcome</h2>
         </div>
-        <div className="main">
-          <div className="form">
-            <h1 className="create">CREATE ACCOUNT</h1>
-            <div className="Form">
-              <div className="container">
-                <form onSubmit={handleRegister}>
-                  <input
-                    className="input"
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    onChange={updateName}
-                  />
 
-                  <input
-                    className="input"
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    onChange={updateEmail}
-                  />
+        <div className="form">
+          <h1 className="create">CREATE ACCOUNT</h1>
 
-                  <input
-                    className="input"
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    onChange={updatePassword}
-                  />
-                  <div className="wrap">
-                    <button className="button" type="submit">
-                      Submit
-                    </button>
-                    <ToastContainer />
-                  </div>
-                </form>
+          <div className="container">
+            <form onSubmit={handleRegister}>
+              <input
+                className="input"
+                type="text"
+                name="name"
+                placeholder="Name"
+                onChange={updateName}
+              />
+
+              <input
+                className="input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                onChange={updateEmail}
+              />
+
+              <input
+                className="input"
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={updatePassword}
+              />
+              <div className="wrap">
+                <button className="button" type="submit">
+                  Submit
+                </button>
+                <ToastContainer />
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

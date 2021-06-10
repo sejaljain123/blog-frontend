@@ -13,8 +13,7 @@
   }
   .auth {
     display: flex;
-    .signin,
-    .register,
+
     .homebtn {
       text-decoration: none;
       margin: 20px;
@@ -27,5 +26,16 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       }
     }
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 700px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+  }
+  .homebtn {
+    padding: 5px;
   }
 }

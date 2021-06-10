@@ -1,12 +1,12 @@
 .Home {
   display: flex;
-
+  height: 100%;
   width: 100%;
-  position: absolute;
+  justify-content: center;
+  align-items: center;
 
   .form,
   .main {
-    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,6 +16,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: 80px 0px;
     height: 50vh;
+    width: 50%;
   }
 
   .form {
@@ -54,7 +55,7 @@
       padding: 12px 45px;
       letter-spacing: 1px;
       transition: transform 80ms ease-in;
-      margin-top: 20px;
+      margin: 20px 0px;
       cursor: pointer;
 
       &:active {
@@ -71,15 +72,14 @@
   }
 }
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 50%;
+
   .input {
     border: none;
-    width: 100%;
     background-color: var(--placeholder-color);
     margin-top: 20px;
     padding: 20px;
+    width: 80%;
   }
   .button {
     border-radius: 20px;
@@ -91,7 +91,7 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
-    margin-top: 20px;
+    margin: 20px 0px;
 
     &:hover {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
@@ -103,6 +103,18 @@
 
     &:focus {
       outline: none;
+    }
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 800px) {
+  .Home {
+    display: block;
+    .form,
+    .main {
+      width: 100%;
+      margin: 20 0px;
+      padding: 10px;
+      height: 100%;
     }
   }
 }

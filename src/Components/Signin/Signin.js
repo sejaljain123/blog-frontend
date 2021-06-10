@@ -45,31 +45,29 @@ const Signin = () => {
       <div className="Home">
         <div className="form">
           <h1 className="signin">SIGN IN</h1>
-          <div className="Form">
-            <div className="container">
-              <form>
-                <input
-                  className="input"
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  onChange={updateEmail}
-                />
+          <div className="container">
+            <form>
+              <input
+                className="input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                onChange={updateEmail}
+              />
 
-                <input
-                  className="input"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  onChange={updatePassword}
-                />
+              <input
+                className="input"
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={updatePassword}
+              />
 
-                <button onClick={handleSignIn} className="button" type="submit">
-                  Submit
-                </button>
-                <ToastContainer position="top-right" autoClose={100000} />
-              </form>
-            </div>
+              <button onClick={handleSignIn} className="button" type="submit">
+                Submit
+              </button>
+              <ToastContainer position="top-right" autoClose={100000} />
+            </form>
           </div>
         </div>
         <div className="main">
