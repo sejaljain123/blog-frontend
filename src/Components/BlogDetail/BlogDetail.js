@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { detailApi } from '../../api';
 import { MdPreviewer } from 'react-markdown-previewer';
 import DasHeader from '../Dashboard/DasHeader/DasHeader';
-
 import './BlogDetail.scss';
 
 const BlogDetail = () => {

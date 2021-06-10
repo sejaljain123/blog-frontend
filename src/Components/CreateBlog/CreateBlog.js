@@ -1,19 +1,21 @@
 import React from 'react';
 import { useState } from 'react';
 import './CreateBlog.scss';
-
 import { createApi } from '../../api';
 import MDEditor from '@uiw/react-md-editor';
 import { Link, useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+
 const CreateBlog = () => {
   const [blogtitle, setTitle] = useState('');
   const [blogdescription, setDescription] = useState('');
   const [blogcontent, setContent] = useState('');
   const history = useHistory();
+
   const updateTitle = (e) => {
     setTitle(e.target.value);
   };
+
   const updateDescription = (e) => {
     setDescription(e.target.value);
   };

@@ -19,12 +19,14 @@ const BlogUpdate = () => {
     // eslint-disable-next-line
     []
   );
+
   const handleOldData = async () => {
     const data = await detailApi({ id });
     setTitle(data.posts.title);
     setDescription(data.posts.description);
     setContent(data.posts.content);
   };
+
   const handleUpdate = async (e) => {
     e.preventDefault();
     await updateApi({ id, blogtitle, blogdescription, blogcontent });
@@ -38,6 +40,7 @@ const BlogUpdate = () => {
   const updateDescription = (e) => {
     setDescription(e.target.value);
   };
+
   return (
     <>
       <nav className="nav">

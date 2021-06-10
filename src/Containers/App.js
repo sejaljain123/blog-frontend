@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import DashboardPage from '../Components/DashboardPage/DashboardPage';
 import BlogDetail from '../Components/BlogDetail/BlogDetail';
 import Hero from '../Components/Hero/Hero';
+
 const App = () => {
   return (
     <div className="app">

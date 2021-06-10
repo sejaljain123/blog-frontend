@@ -6,7 +6,6 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { displayApi } from '../../api';
 import Blog from './Blog/Blog';
 import Header from '../Header/Header';
-
 import './Hero.scss';
 
 const Hero = () => {
@@ -15,11 +14,11 @@ const Hero = () => {
   useEffect(() => {
     handleDisplay();
   }, []);
+
   const handleDisplay = async () => {
     setloading(true);
     const data = await displayApi();
-    const blog = await data.json();
-    setPost(blog.posts);
+    setPost(data.posts);
     setloading(false);
   };
   if (loading)
@@ -28,6 +27,7 @@ const Hero = () => {
         <ClipLoader loading={loading} color="#ff005b" size={100} />{' '}
       </div>
     );
+
   return (
     <>
       <Header />

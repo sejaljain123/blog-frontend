@@ -16,6 +16,7 @@ const Signin = () => {
   const updateEmail = (e) => {
     setsigninEmail(e.target.value);
   };
+
   const updatePassword = (e) => {
     setsigninPassword(e.target.value);
   };
@@ -29,15 +30,15 @@ const Signin = () => {
     } else {
       e.preventDefault();
       const data = await signinApi(signinEmail, signinPassword);
-      const signin = await data.json();
-      if ((signin.success = true)) {
-        Cookies.set('token', signin.token);
+      if ((data.success = true)) {
+        Cookies.set('token', data.token);
         history.push('/dashboard');
       }
     }
   };
 
   if (Cookies.get('token')) return <Redirect to="/dashboard"></Redirect>;
+
   return (
     <div className="signincontainer">
       <Header />

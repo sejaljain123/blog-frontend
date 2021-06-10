@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './Dashboard.scss';
 import BlogList from '../BlogList/BlogList';
 import { userBlogApi } from '../../api';
-
 import DasHeader from './DasHeader/DasHeader';
 
 const Dashboard = () => {
@@ -11,6 +10,7 @@ const Dashboard = () => {
   useEffect(() => {
     handleDisplay();
   }, []);
+
   const handleDisplay = async () => {
     const data = await userBlogApi();
     setPost(data.posts);

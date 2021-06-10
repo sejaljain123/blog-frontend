@@ -4,28 +4,31 @@ import './Register.scss';
 import { registerApi } from '../../api';
 import { useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
+
 const Register = () => {
   const [regName, setName] = useState(null);
   const [regEmail, setRegEmail] = useState(null);
   const [regPassword, setRegPassword] = useState(null);
   const history = useHistory();
+
   const updateName = (e) => {
     setName(e.target.value);
   };
+
   const updateEmail = (e) => {
     setRegEmail(e.target.value);
   };
+
   const updatePassword = (e) => {
     setRegPassword(e.target.value);
   };
+
   const handleRegister = async (e) => {
     e.preventDefault();
     history.push('/signin');
-    const data = await registerApi(regName, regEmail, regPassword);
-    const register = await data.json();
-
-    console.log(register);
+    await registerApi(regName, regEmail, regPassword);
   };
+
   return (
     <>
       <Header />

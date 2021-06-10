@@ -10,9 +10,11 @@ import './DashboardPage.scss';
 const DashboardPage = () => {
   const [isloggedIn, setLoggedIn] = useState(false);
   const [isLoading, setLoading] = useState(true);
+
   useEffect(() => {
     handleAuth();
   }, []);
+
   const handleAuth = async () => {
     setLoading(true);
     const data = await verifyApi();
@@ -31,6 +33,7 @@ const DashboardPage = () => {
         <ClipLoader isLoading={isLoading} color="#ff005b" size={100} />{' '}
       </div>
     );
+
   if (!isloggedIn) return <Redirect to="/"></Redirect>;
 
   return (

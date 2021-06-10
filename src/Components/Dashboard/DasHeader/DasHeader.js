@@ -3,12 +3,14 @@ import logo from './Readit.png';
 import { Link, useHistory } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import './DasHeader.scss';
+
 const DasHeader = () => {
   const history = useHistory();
   const signout = () => {
     Cookies.remove('token');
     history.push('/signin');
   };
+
   return (
     <div>
       <nav className="Dasheader">

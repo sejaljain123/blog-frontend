@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import './BlogCard.scss';
 import 'react-toastify/dist/ReactToastify.css';
+
 const BlogCard = (props) => {
   const handleDelete = async () => {
     const data = await deleteApi(props);
-    console.log(data);
     if ((data.success = true)) {
       toast.dark('Post Deleted', {
         position: 'top-right',

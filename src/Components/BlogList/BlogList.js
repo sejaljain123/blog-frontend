@@ -1,10 +1,8 @@
 import React from 'react';
 import BlogCard from '../BlogCard/BlogCard';
-
 import './BlogList.scss';
 
 const BlogList = ({ post, handleDisplay }) => {
-  console.log(post);
   return (
     <>
       <div className="blogListcontainer">

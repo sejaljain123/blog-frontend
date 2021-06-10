@@ -8,9 +8,9 @@ export const displayApi = async () => {
       'Content-Type': 'application/json',
     },
   });
-
-  return data;
+  return await data.json();
 };
+
 export const signinApi = async (signinEmail, signinPassword) => {
   const data = await fetch('https://read-it-blog.herokuapp.com/signin', {
     method: 'post',
@@ -23,9 +23,9 @@ export const signinApi = async (signinEmail, signinPassword) => {
       password: signinPassword,
     }),
   });
-
-  return data;
+  return await data.json();
 };
+
 export const registerApi = async (regName, regEmail, regPassword) => {
   const data = await fetch('https://read-it-blog.herokuapp.com/register', {
     method: 'post',
@@ -36,8 +36,9 @@ export const registerApi = async (regName, regEmail, regPassword) => {
       password: regPassword,
     }),
   });
-  return data;
+  return await data.json();
 };
+
 export const deleteApi = async (props) => {
   const data = await fetch(`https://read-it-blog.herokuapp.com/blog/delete/${props.id}`, {
     method: 'delete',
@@ -48,6 +49,7 @@ export const deleteApi = async (props) => {
   });
   return await data.json();
 };
+
 export const createApi = async (blogtitle, blogdescription, blogcontent) => {
   const data = await fetch('https://read-it-blog.herokuapp.com/blog/create', {
     method: 'post',
@@ -74,6 +76,7 @@ export const detailApi = async (props) => {
   });
   return await data.json();
 };
+
 export const verifyApi = async () => {
   const data = await fetch(`https://read-it-blog.herokuapp.com/verify`, {
     method: 'get',
@@ -84,6 +87,7 @@ export const verifyApi = async () => {
   });
   return await data.json();
 };
+
 export const userBlogApi = async () => {
   const data = await fetch(`https://read-it-blog.herokuapp.com/blog/myblogs`, {
     method: 'get',
@@ -94,6 +98,7 @@ export const userBlogApi = async () => {
   });
   return await data.json();
 };
+
 export const updateApi = async (props) => {
   const data = await fetch(`https://read-it-blog.herokuapp.com/blog/update/${props.id}`, {
     method: 'put',
