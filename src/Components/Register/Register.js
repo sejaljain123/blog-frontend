@@ -4,6 +4,7 @@ import './Register.scss';
 import { registerApi } from '../../api';
 import { useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Register = () => {
   const [regName, setName] = useState(null);
@@ -24,9 +25,14 @@ const Register = () => {
   };
 
   const handleRegister = async (e) => {
-    e.preventDefault();
-    history.push('/signin');
-    await registerApi(regName, regEmail, regPassword);
+    if (!regName || !regEmail || !regPassword) {
+      toast.dark('Input Fields cannot be empty');
+      history.push('/register');
+    } else {
+      e.preventDefault();
+      history.push('/signin');
+      await registerApi(regName, regEmail, regPassword);
+    }
   };
 
   return (
@@ -69,6 +75,7 @@ const Register = () => {
                     <button className="button" type="submit">
                       Submit
                     </button>
+                    <ToastContainer />
                   </div>
                 </form>
               </div>
