@@ -9,8 +9,8 @@ import Header from '../Header/Header';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Signin = () => {
-  const [signinEmail, setsigninEmail] = useState(null);
-  const [signinPassword, setsigninPassword] = useState(null);
+  const [signinEmail, setsigninEmail] = useState('');
+  const [signinPassword, setsigninPassword] = useState('');
   const history = useHistory();
 
   const updateEmail = (e) => {
@@ -30,9 +30,14 @@ const Signin = () => {
     } else {
       e.preventDefault();
       const data = await signinApi(signinEmail, signinPassword);
-      if ((data.success = true)) {
+      if (data.success === true) {
         Cookies.set('token', data.token);
         history.push('/dashboard');
+      }
+      if (data.success === false) {
+        toast.dark('Wrong Credentials');
+        setsigninEmail('');
+        setsigninPassword('');
       }
     }
   };
@@ -51,6 +56,7 @@ const Signin = () => {
                 className="input"
                 type="email"
                 name="email"
+                value={signinEmail}
                 placeholder="Email"
                 onChange={updateEmail}
               />
@@ -59,6 +65,7 @@ const Signin = () => {
                 className="input"
                 type="password"
                 name="password"
+                value={signinPassword}
                 placeholder="Password"
                 onChange={updatePassword}
               />
@@ -66,7 +73,7 @@ const Signin = () => {
               <button onClick={handleSignIn} className="button" type="submit">
                 Submit
               </button>
-              <ToastContainer position="top-right" autoClose={100000} />
+              <ToastContainer position="top-right" autoClose={1000} />
             </form>
           </div>
         </div>

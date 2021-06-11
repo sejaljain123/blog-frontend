@@ -25,11 +25,11 @@ const Register = () => {
   };
 
   const handleRegister = async (e) => {
+    e.preventDefault();
     if (!regName || !regEmail || !regPassword) {
       toast.dark('Input Fields cannot be empty');
       history.push('/register');
     } else {
-      e.preventDefault();
       history.push('/signin');
       await registerApi(regName, regEmail, regPassword);
     }
@@ -45,13 +45,13 @@ const Register = () => {
 
         <div className="form">
           <h1 className="create">CREATE ACCOUNT</h1>
-
           <div className="container">
             <form onSubmit={handleRegister}>
               <input
                 className="input"
                 type="text"
                 name="name"
+                value={regName}
                 placeholder="Name"
                 onChange={updateName}
               />
@@ -60,6 +60,7 @@ const Register = () => {
                 className="input"
                 type="email"
                 name="email"
+                value={regEmail}
                 placeholder="Email"
                 onChange={updateEmail}
               />
@@ -68,6 +69,7 @@ const Register = () => {
                 className="input"
                 type="password"
                 name="password"
+                value={regPassword}
                 placeholder="Password"
                 onChange={updatePassword}
               />
