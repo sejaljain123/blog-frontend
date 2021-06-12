@@ -9,7 +9,7 @@ import Header from '../Header/Header';
 import './Hero.scss';
 
 const Hero = () => {
-  const [post, setPost] = useState([]);
+  const [post, setPost] = useState<any[]>([]);
   const [loading, setloading] = useState(true);
   useEffect(() => {
     handleDisplay();

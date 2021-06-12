@@ -1,4 +1,3 @@
-import React from 'react';
 import './Signin.scss';
 import { useState } from 'react';
 import Cookies from 'js-cookie';
@@ -13,15 +12,15 @@ const Signin = () => {
   const [signinPassword, setsigninPassword] = useState('');
   const history = useHistory();
 
-  const updateEmail = (e) => {
+  const updateEmail = (e: any) => {
     setsigninEmail(e.target.value);
   };
 
-  const updatePassword = (e) => {
+  const updatePassword = (e: any) => {
     setsigninPassword(e.target.value);
   };
 
-  const handleSignIn = async (e) => {
+  const handleSignIn = async (e: any) => {
     if (!signinPassword || !signinEmail) {
       toast.dark('Enter Email and Password', {
         position: 'top-right',

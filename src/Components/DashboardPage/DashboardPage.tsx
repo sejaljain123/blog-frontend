@@ -8,8 +8,8 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import './DashboardPage.scss';
 
 const DashboardPage = () => {
-  const [isloggedIn, setLoggedIn] = useState(false);
-  const [isLoading, setLoading] = useState(true);
+  const [isloggedIn, setLoggedIn] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     handleAuth();
@@ -27,10 +27,10 @@ const DashboardPage = () => {
     setLoading(false);
   };
 
-  if (isLoading)
+  if (loading)
     return (
       <div className="loader">
-        <ClipLoader isLoading={isLoading} color="#ff005b" size={100} />{' '}
+        <ClipLoader loading={loading} color="#ff005b" size={100} />{' '}
       </div>
     );
 

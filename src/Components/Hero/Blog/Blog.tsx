@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Blog.scss';
 
-const Blog = (props) => {
+const Blog = (props: any) => {
   return (
     <>
       <div className="blogcontainer">

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import './Register.scss';
 import { registerApi } from '../../api';
@@ -7,24 +6,24 @@ import Header from '../Header/Header';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Register = () => {
-  const [regName, setName] = useState(null);
-  const [regEmail, setRegEmail] = useState(null);
-  const [regPassword, setRegPassword] = useState(null);
+  const [regName, setName] = useState('');
+  const [regEmail, setRegEmail] = useState('');
+  const [regPassword, setRegPassword] = useState('');
   const history = useHistory();
 
-  const updateName = (e) => {
+  const updateName = (e: any) => {
     setName(e.target.value);
   };
 
-  const updateEmail = (e) => {
+  const updateEmail = (e: any) => {
     setRegEmail(e.target.value);
   };
 
-  const updatePassword = (e) => {
+  const updatePassword = (e: any) => {
     setRegPassword(e.target.value);
   };
 
-  const handleRegister = async (e) => {
+  const handleRegister = async (e: any) => {
     e.preventDefault();
     if (!regName || !regEmail || !regPassword) {
       toast.dark('Input Fields cannot be empty');
